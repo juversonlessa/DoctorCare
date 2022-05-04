@@ -13,6 +13,8 @@
   --brand-light: hsl(148, 23%, 89%);
 
   font-size: 62.5%; /* 1rem = 10px (o padrão do navegador são 16px)*/
+
+  --nav-height: 7.2rem;
 }
 
 body {
@@ -24,18 +26,19 @@ body {
 .wrapper {
   width: 37.5rem;
   margin-inline: auto;
+  padding-inline: 2.4rem;
 }
 
 /*=== HEADER ===============================*/
 
 header {
-  margin-top: 4.1rem;
+  margin-top: calc(4.1rem + var(--nav-height));
 }
 
 header::before {
-  content: "" ;
+  content: '';
   width: 100vw;
-  height: 108rem;
+  height: calc(108rem + var(--nav-height));
   background-color: var(--brand-light);
   display: block;
 
@@ -101,7 +104,7 @@ header img {
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
   display: flex;
-  flex-direction: column;/*Muda o flex para ficar uma em baixo do outro*/
+  flex-direction: column; /*Muda o flex para ficar uma em baixo do outro*/
   justify-content: center;
   gap: 6rem;
 }
@@ -124,13 +127,30 @@ header img {
 
 nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  padding: 1.6rem 2.4rem;
+  height: var(--nav-height);
 
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background: var(--primary-color);
+  width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path {
+  fill: white;
+}
+
+nav.scroll svg:nth-child(2) path {
+  stroke: white;
 }
