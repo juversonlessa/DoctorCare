@@ -12,10 +12,15 @@
   --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
+  --bg-light: hsl(180, 14%, 97%);
 
   font-size: 62.5%; /* 1rem = 10px (o padrão do navegador são 16px)*/
 
   --nav-height: 7.2rem;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -31,6 +36,8 @@ body {
   text-align: center;
 
   overflow: overlay;
+
+  background-color: var(--bg-light);
 }
 
 .wrapper {
@@ -43,98 +50,8 @@ ul {
   list-style: none;
 }
 
-/*=== HEADER ===============================*/
-
-header {
-  margin-top: calc(4.1rem + var(--nav-height));
-}
-
-header::before {
-  content: '';
-  width: 100%;
-  height: calc(108rem + var(--nav-height));
-  background-color: var(--brand-light);
-  display: block;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-header h4 {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
-}
-
-header h1 {
-  font-size: 3.4rem;
-  color: var(--headlin);
-  line-height: 130%;
-  margin-bottom: 2.4rem;
-}
-
-header p {
-  font-size: 1.8rem;
-  line-height: 150%;
-  font-weight: 400;
-  color: var(--paragraph);
-  margin-bottom: 3.2rem;
-}
-
-header button {
-  background: var(--primary-color);
-  border: none;
-  border-radius: 4rem;
-  margin-bottom: 6rem;
-  height: 5.2rem;
-  width: 26.3rem;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  display: flex; /*Uma caixa ao lado da outra*/
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-header img {
-  width: 26.4rem;
-  display: block;
-  margin-inline: auto;
-  object-position: 0 2rem;
-}
-
-.stats {
-  width: 32.7rem;
-  padding-block: 4rem;
-  margin-inline: auto;
-  background-color: var(--brand-beige);
-  border: 1px solid var(--brand-light);
-  border-radius: 0.6rem;
-  display: flex;
-  flex-direction: column; /*Muda o flex para ficar uma em baixo do outro*/
-  justify-content: center;
-  gap: 6rem;
-}
-
-.stat h3 {
-  font-size: 4.8rem;
-  color: var(--headline);
-  line-height: 130%;
-  margin-bottom: 0.4rem;
-}
-
-.stat p {
-  margin: 0;
-  color: var(--primary-color);
-  font-size: 1.6rem;
-  line-height: 150%;
+section {
+  padding-block: 10rem;
 }
 
 /*=== NAVIGATION ===============================*/
@@ -146,8 +63,9 @@ nav {
 
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100vw;
+
+  z-index: 100;
 }
 
 nav .wrapper {
@@ -158,10 +76,9 @@ nav .wrapper {
 
 nav.scroll {
   background: var(--primary-color);
-  width: 100vw;
 }
 
-nav.scroll svg:nth-child(1) path {
+nav.scroll .logo path {
   fill: white;
 }
 
@@ -181,7 +98,7 @@ body.menu-expanded {
 }
 
 body.menu-expanded > :not(nav) {
-  display: none;
+  visibility: hidden;
 }
 
 .menu,
@@ -197,7 +114,11 @@ body.menu-expanded .close-menu {
   visibility: visible;
 }
 
-body.menu-expanded .menu{
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -207,10 +128,11 @@ body.menu-expanded .menu{
   height: 100vw;
 
   padding: var(--nav-height);
-}
 
-body.menu-expanded nav {
-  position: relative;
+  transition: transform 300ms;
+  transform: translateY(0)
+
+
 }
 
 .menu ul:nth-child(1) {
@@ -226,7 +148,7 @@ body.menu-expanded nav {
 }
 
 .menu ul li a {
-  color:white;
+  color: white;
   text-decoration: none;
 }
 
@@ -268,6 +190,100 @@ body.menu-expanded button path {
   stroke: white;
 }
 
+/*=== HEADER ===============================*/
+
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home::before {
+  content: '';
+  width: 100%;
+  height: calc(108rem + var(--nav-height));
+  background-color: var(--brand-light);
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#home h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+}
+
+#home h1 {
+  font-size: 3.4rem;
+  color: var(--headlin);
+  line-height: 130%;
+  margin-bottom: 2.4rem;
+}
+
+#home p {
+  font-size: 1.8rem;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--paragraph);
+  margin-bottom: 3.2rem;
+}
+
+#home button {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+  height: 5.2rem;
+  width: 26.3rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  display: flex; /*Uma caixa ao lado da outra*/
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#home img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
+#home .stats {
+  width: 32.7rem;
+  padding-block: 4rem;
+  margin-inline: auto;
+  background-color: var(--brand-beige);
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column; /*Muda o flex para ficar uma em baixo do outro*/
+  justify-content: center;
+  gap: 6rem;
+}
+
+#home .stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+  margin-bottom: 0.4rem;
+}
+
+#home .stat p {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
 /*=== SERVICES ===============================*/
 
 #services header h4 {
@@ -290,3 +306,24 @@ body.menu-expanded button path {
 
   margin-bottom: 6rem;
 }
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  padding: 2.4rem;
+  text-align: left;
+
+  background: white;
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
+}
+
+/*=== SERVICES ===============================*/
