@@ -63,12 +63,11 @@ img {
   max-width: 100%;
 }
 
-
 section header h4 {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 150%;
-  letter-spacing: 0.08em; 
+  letter-spacing: 0.08em;
   color: var(--primary-color);
 
   text-transform: uppercase;
@@ -136,15 +135,15 @@ section .content p {
 /*=== CUSTOM COLORS ===============================*/
 
 #services .card circle {
-  fill: var(--brand-light)
+  fill: var(--brand-light);
 }
 
-#navigation .logo path[fill*="#00856F"],
+#navigation .logo path[fill*='#00856F'],
 #backToTopButton circle {
   fill: var(--primary-color);
 }
 
-button.open-menu path[stroke*="#00856F"],
+button.open-menu path[stroke*='#00856F'],
 #contact li path {
   stroke: var(--primary-color);
 }
@@ -154,7 +153,7 @@ body.menu-expanded #navigation .logo path,
   fill: white;
 }
 
-#navigation.scroll button.open-menu path[stroke*="#00856F"] {
+#navigation.scroll button.open-menu path[stroke*='#00856F'] {
   stroke: white;
 }
 
@@ -230,9 +229,7 @@ body.menu-expanded .menu {
   padding: var(--nav-height);
 
   transition: transform 300ms;
-  transform: translateY(0)
-
-
+  transform: translateY(0);
 }
 
 .menu ul:nth-child(1) {
@@ -505,7 +502,6 @@ footer .social-links {
 
 /*=== RESPONSIVE ===============================*/
 @media (min-width: 1024px) {
-
   /*=== GERAL ===============================*/
   body {
     overflow: auto;
@@ -532,7 +528,7 @@ footer .social-links {
     font-size: 4rem;
     line-height: 5.2rem;
   }
-  
+
   /*=== NAVIGATION ===============================*/
   /*=== RESET ===============================*/
   nav#navigation .wrapper * {
@@ -609,10 +605,10 @@ footer .social-links {
   }
 
   nav#navigation .menu li a {
-    transition: opacity .4s;
+    transition: opacity 0.4s;
   }
 
-  nav#navigation .menu li a:active,
+  nav#navigation .menu li a.active,
   nav#navigation .menu li a:hover {
     opacity: 1;
     font-weight: 700;
@@ -623,27 +619,27 @@ footer .social-links {
     width: 0%;
     height: 2px;
     background-color: var(--primary-color);
-    
+
     position: relative;
     bottom: -2rem;
     left: -0.5rem;
- 
+
     display: block;
 
     transition: width 0.2s;
   }
 
-  nav#navigation.scroll .menu li a::after{
+  nav#navigation.scroll .menu li a::after {
     background-color: white;
   }
 
-  nav#navigation .menu li a:active::after,
-  nav#navigation .menu li a:hover::after{
+  nav#navigation .menu li a.active::after,
+  nav#navigation .menu li a:hover::after {
     padding-inline: 0.8rem;
     width: 100%;
   }
 
-  nav#navigation.scroll .menu li a:active,
+  nav#navigation.scroll .menu li a.active,
   nav#navigation.scroll .menu li a:hover {
     opacity: 1;
   }
@@ -659,16 +655,16 @@ footer .social-links {
   #home::before {
     height: calc(96% - var(--nav-height));
   }
-  
+
   #home {
     padding-top: var(--nav-height);
   }
-  
+
   #home .wrapper {
     grid-template-columns: 60.5rem 1fr;
-    grid-template-areas: 
-    'A B'
-    'C C';
+    grid-template-areas:
+      'A B'
+      'C C';
   }
 
   #home .col-a {
@@ -678,7 +674,7 @@ footer .social-links {
 
   #home h1 {
     font-size: 5.2rem;
-  } 
+  }
 
   #home .content {
     font-size: 1.8rem;
@@ -693,7 +689,7 @@ footer .social-links {
   }
 
   #home .stats .stat + .stat {
-      border-left: 1px solid var(--primary-color);
+    border-left: 1px solid var(--primary-color);
   }
 
   #home .stats .stat {
@@ -759,7 +755,7 @@ footer .social-links {
   footer {
     padding-block: 8rem;
   }
-  
+
   footer .wrapper {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'A B';
